@@ -19,7 +19,7 @@ namespace ClassLibraryTicketSystem.Tests
             MC mc = new("1-ABC-12", datetime);
 
             //Act
-            double price = mc.price();
+            double price = mc.Price();
 
             //Assert
             Assert.AreEqual(125, price);
@@ -33,7 +33,7 @@ namespace ClassLibraryTicketSystem.Tests
             MC mc = new("1-ABC-12", datetime);
 
             //Act
-            string vehicle = mc.Vehicle();
+            string vehicle = mc.VehicleType();
 
             //Assert
             Assert.AreEqual("MC", vehicle);

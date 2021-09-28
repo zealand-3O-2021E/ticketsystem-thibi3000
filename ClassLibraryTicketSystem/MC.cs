@@ -6,28 +6,27 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryTicketSystem
 {
-    public class MC
+    /// <summary>
+    /// Class for a MC that inherits from the Vehicle class
+    /// </summary>
+    public class MC : Vehicle
     {
-        public string LicensePlate { get; set; }
-
-        public DateTime Date { get; set; }
 
         /// <summary>
         /// Constructor for the MC class
         /// </summary>
         /// <param name="plate">plate of the MC</param>
         /// <param name="date">date the MC crossed the bridge</param>
-        public MC(string plate, DateTime date)
+        public MC(string plate, DateTime date) : base(plate, date)
         {
-            LicensePlate = plate;
-            Date = date;
+            
         }
 
         /// <summary>
         /// Method that returns the price for a MC
         /// </summary>
         /// <returns>125</returns>
-        public double price()
+        public override double Price()
         {
             return 125;
         }
@@ -36,7 +35,7 @@ namespace ClassLibraryTicketSystem
         /// Method that returns the vehicletype
         /// </summary>
         /// <returns>MC</returns>
-        public string Vehicle()
+        public override string VehicleType()
         {
             return "MC";
         }
