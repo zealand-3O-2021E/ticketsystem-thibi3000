@@ -25,8 +25,12 @@ namespace ClassLibraryTicketSystem
         /// Method that returns a price for the cars crossing the bridge
         /// </summary>
         /// <returns>240</returns>
-        public override double Price()
+        public override double Price(bool brobizz)
         {
+            if (brobizz)
+            {
+                return 240 * 0.95;
+            }
             return 240;
         }
         /// <summary>

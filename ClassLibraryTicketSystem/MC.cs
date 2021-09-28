@@ -26,8 +26,12 @@ namespace ClassLibraryTicketSystem
         /// Method that returns the price for a MC
         /// </summary>
         /// <returns>125</returns>
-        public override double Price()
+        public override double Price(bool brobizz)
         {
+            if (brobizz)
+            {
+                return 125 * 0.95;
+            }
             return 125;
         }
 

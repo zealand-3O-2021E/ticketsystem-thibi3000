@@ -12,17 +12,31 @@ namespace ClassLibraryTicketSystem.Tests
     public class MCTests
     {
         [TestMethod()]
-        public void priceTest()
+        public void PriceTestWithoutBrobizz()
         {
             //Arrange
             DateTime datetime = new DateTime(2021, 09, 25);
-            MC mc = new("1-ABC-12", datetime);
+            MC mc = new("1-ABC-1", datetime);
 
             //Act
-            double price = mc.Price();
+            double price = mc.Price(false);
 
             //Assert
             Assert.AreEqual(125, price);
+        }
+
+        [TestMethod()]
+        public void PriceTestWithBrobizz()
+        {
+            //Arrange
+            DateTime datetime = new DateTime(2021, 09, 25);
+            MC mc = new("1-ABC-1", datetime);
+
+            //Act
+            double price = mc.Price(true);
+
+            //Assert
+            Assert.AreEqual(118.75, price, 0.01);
         }
 
         [TestMethod()]
@@ -30,13 +44,27 @@ namespace ClassLibraryTicketSystem.Tests
         {
             //Arrange
             DateTime datetime = new DateTime(2021, 09, 25);
-            MC mc = new("1-ABC-12", datetime);
+            MC mc = new("1-ABC-1", datetime);
 
             //Act
             string vehicle = mc.VehicleType();
 
             //Assert
             Assert.AreEqual("MC", vehicle);
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentException))]
+        public void PlateExceptionTest()
+        {
+            //Arrange
+            DateTime datetime = new DateTime(2021, 09, 25);
+            MC mc = new("1-ABC-12", datetime);
+
+            //Act
+
+            //Assert
+            Assert.Fail();
         }
     }
 }

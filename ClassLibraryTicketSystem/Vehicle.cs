@@ -21,7 +21,15 @@ namespace ClassLibraryTicketSystem
         /// <param name="date">The date when the car or MC crossed the bridge</param>
         public Vehicle(string plate, DateTime date)
         {
-            LicensePlate = plate;
+            if (plate.Length <= 7)
+            {
+                LicensePlate = plate;
+            }
+            else
+            {
+                throw new ArgumentException("The license plate can't be longer than 7 characters");
+            }
+
             Date = date;
         }
 
@@ -29,7 +37,7 @@ namespace ClassLibraryTicketSystem
         /// An abstract method used in the derived classes to return the price
         /// </summary>
         /// <returns>price</returns>
-        public abstract double Price();
+        public abstract double Price(bool brobizz);
 
         /// <summary>
         /// An abstract method used in the derived classes to return the vehicle type
