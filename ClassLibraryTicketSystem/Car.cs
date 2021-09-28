@@ -15,6 +15,11 @@ namespace ClassLibraryTicketSystem
 
         public DateTime Date { get; set; }
 
+        /// <summary>
+        /// Constructor for the car class
+        /// </summary>
+        /// <param name="plate">Plate of the car</param>
+        /// <param name="date">Date the car crossed the bridge</param>
         public Car(string plate, DateTime date)
         {
             Licenseplate = plate;
