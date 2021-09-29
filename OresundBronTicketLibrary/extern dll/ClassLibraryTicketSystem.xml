@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ClassLibraryTicketSystem</name>
+    </assembly>
+    <members>
+        <member name="T:ClassLibraryTicketSystem.Car">
+            <summary>
+            Class for a car that inherits from the Vehicle class
+            </summary>
+        </member>
+        <member name="M:ClassLibraryTicketSystem.Car.#ctor(System.String,System.DateTime)">
+            <summary>
+            Constructor for the car class
+            </summary>
+            <param name="plate">Plate of the car</param>
+            <param name="date">Date the car crossed the bridge</param>
+        </member>
+        <member name="M:ClassLibraryTicketSystem.Car.Price(System.Boolean)">
+            <summary>
+            Method that returns a price for the cars crossing the bridge
+            </summary>
+            <returns>240</returns>
+        </member>
+        <member name="M:ClassLibraryTicketSystem.Car.VehicleType">
+            <summary>
+            Method that returns the type of vehicle
+            </summary>
+            <returns>Car</returns>
+        </member>
+        <member name="T:ClassLibraryTicketSystem.MC">
+            <summary>
+            Class for a MC that inherits from the Vehicle class
+            </summary>
+        </member>
+        <member name="M:ClassLibraryTicketSystem.MC.#ctor(System.String,System.DateTime)">
+            <summary>
+            Constructor for the MC class
+            </summary>
+            <param name="plate">plate of the MC</param>
+            <param name="date">date the MC crossed the bridge</param>
+        </member>
+        <member name="M:ClassLibraryTicketSystem.MC.Price(System.Boolean)">
+            <summary>
+            Method that returns the price for a MC
+            </summary>
+            <returns>125</returns>
+        </member>
+        <member name="M:ClassLibraryTicketSystem.MC.VehicleType">
+            <summary>
+            Method that returns the vehicletype
+            </summary>
+            <returns>MC</returns>
+        </member>
+        <member name="T:ClassLibraryTicketSystem.Vehicle">
+            <summary>
+            This is the base class for the classes MC and Car
+            </summary>
+        </member>
+        <member name="M:ClassLibraryTicketSystem.Vehicle.#ctor(System.String,System.DateTime)">
+            <summary>
+            This is a constructor that takes two parameters
+            </summary>
+            <param name="plate">The license plate of the car or MC</param>
+            <param name="date">The date when the car or MC crossed the bridge</param>
+        </member>
+        <member name="M:ClassLibraryTicketSystem.Vehicle.Price(System.Boolean)">
+            <summary>
+            An abstract method used in the derived classes to return the price
+            </summary>
+            <returns>price</returns>
+        </member>
+        <member name="M:ClassLibraryTicketSystem.Vehicle.VehicleType">
+            <summary>
+            An abstract method used in the derived classes to return the vehicle type
+            </summary>
+            <returns>Vehicle type</returns>
+        </member>
+    </members>
+</doc>
