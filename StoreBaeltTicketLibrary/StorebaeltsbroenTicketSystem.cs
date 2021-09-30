@@ -18,6 +18,12 @@ namespace StoreBaeltTicketLibrary
             price = 0;
         }
 
+        /// <summary>
+        /// Calculates the price for a car ticket with weekend and brobizz discount.
+        /// </summary>
+        /// <param name="weekend"></param>
+        /// <param name="brobizz"></param>
+        /// <returns></returns>
         public double CarPrice(bool weekend, bool brobizz)
         {
             if(weekend)
