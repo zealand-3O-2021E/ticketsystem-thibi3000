@@ -5,21 +5,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibraryTicketSystem;
+
 
 namespace StoreBaeltTicketLibrary.Tests
 {
     [TestClass()]
     public class StorebaeltsbroenTicketSystemTests
-    {      
+    {
 
         [TestMethod()]
         public void CarPriceNoBrobizzNoWeekendTest()
         {
             //Arrange
-            StorebaeltsbroenTicketSystem store = new StorebaeltsbroenTicketSystem();
+            DateTime datetime = new DateTime(2021, 09, 23);
+            StorebaeltsbroenTicketSystem store = new StorebaeltsbroenTicketSystem("1-ABC", datetime);
 
             //Act
-            double price = store.CarPrice(false, false);
+            double price = store.Price(false);
 
             //Assert
             Assert.AreEqual(240, price);
@@ -29,10 +32,11 @@ namespace StoreBaeltTicketLibrary.Tests
         public void CarPriceBrobizzNoWeekendTest()
         {
             //Arrange
-            StorebaeltsbroenTicketSystem store = new StorebaeltsbroenTicketSystem();
+            DateTime datetime = new DateTime(2021, 09, 23);
+            StorebaeltsbroenTicketSystem store = new StorebaeltsbroenTicketSystem("1-ABC", datetime);
 
             //Act
-            double price = store.CarPrice(false, true);
+            double price = store.Price(true);
 
             //Assert
             Assert.AreEqual(228, price);
@@ -42,10 +46,11 @@ namespace StoreBaeltTicketLibrary.Tests
         public void CarPriceNoBrobizzWeekendTest()
         {
             //Arrange
-            StorebaeltsbroenTicketSystem store = new StorebaeltsbroenTicketSystem();
+            DateTime datetime = new DateTime(2021, 09, 25);
+            StorebaeltsbroenTicketSystem store = new StorebaeltsbroenTicketSystem("1-ABC", datetime);
 
             //Act
-            double price = store.CarPrice(true, false);
+            double price = store.Price(false);
 
             //Assert
             Assert.AreEqual(192, price);
@@ -55,10 +60,11 @@ namespace StoreBaeltTicketLibrary.Tests
         public void CarPriceBrobizzWeekendTest()
         {
             //Arrange
-            StorebaeltsbroenTicketSystem store = new StorebaeltsbroenTicketSystem();
+            DateTime datetime = new DateTime(2021, 09, 25);
+            StorebaeltsbroenTicketSystem store = new StorebaeltsbroenTicketSystem("1-ABC", datetime);
 
             //Act
-            double price = store.CarPrice(true, true);
+            double price = store.Price(true);
 
             //Assert
             Assert.AreEqual(182.4, price, 0.01);

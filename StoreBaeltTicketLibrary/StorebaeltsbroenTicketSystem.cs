@@ -7,15 +7,15 @@ using ClassLibraryTicketSystem;
 
 namespace StoreBaeltTicketLibrary
 {
-    public class StorebaeltsbroenTicketSystem
-    {        
-        public ClassLibraryTicketSystem.Car car;
-        public double price;
+    public class StorebaeltsbroenTicketSystem : ClassLibraryTicketSystem.Car
+    {
+        private bool _isWeekend;
 
-        public StorebaeltsbroenTicketSystem()
+        public StorebaeltsbroenTicketSystem(string plate, DateTime date) : base(plate, date)
         {
-            car = new ClassLibraryTicketSystem.Car("1-AB-1", new DateTime(2021, 09, 25));
-            price = 0;
+            LicensePlate = plate;
+            Date = date;
+            _isWeekend = false;
         }
 
         /// <summary>
@@ -24,21 +24,24 @@ namespace StoreBaeltTicketLibrary
         /// <param name="weekend"></param>
         /// <param name="brobizz"></param>
         /// <returns></returns>
-        public double CarPrice(bool weekend, bool brobizz)
+        public override double Price(bool brobizz)
         {
-            if(weekend)
+            int weekday = (int)Date.DayOfWeek;
+
+            if (weekday == 0 || weekday == 6)
             {
+                _isWeekend = true;
                 if (brobizz)
                 {
-                    return (car.Price(false) * 0.80)*0.95;
+                    return (240 * 0.80) * 0.95;
                 }
-                return car.Price(false) * 0.80;
+                return 240 * 0.80;
             }
-            if (brobizz)
+            if (brobizz && _isWeekend == false)
             {
-                return car.Price(true);
+                return 240 * 0.95;
             }
-            return car.Price(false);
+            return 240;
         }
     }
 }
